@@ -1,0 +1,20 @@
+body{
+    margin: auto;
+}
+
+#CustomerForm{
+    display: none;
+}
+
+
+#ItemForm{
+    display: none;
+}
+
+#OrderForm{
+    display: none;
+}
+#HomeForm{
+    display: block;
+}
+
