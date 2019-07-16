@@ -120,11 +120,13 @@ function viewAllOrders() {
             var Total = $("#IPrice").text() * $("#OQuntity").val();
 
 
-            findduplicates(INameO);
+                //findduplicates(INameO);
+                if (Oquantity>IquantityO){
                 addOrder(INameO, IpriceO, IquantityO, Total);
                 viewAllOrders();
                 gettotal();
                 clearItemArea();
+                }else{alert("Amount exceeded!")}
 
                     }
 
