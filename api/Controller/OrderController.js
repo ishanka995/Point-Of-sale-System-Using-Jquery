@@ -99,8 +99,8 @@ function viewAllOrders() {
     $('#OTbleBody').empty();
     for (var i = 0; i < temp.length; i++) {
         var ccn = temp[i].getOItemName();
-        var cca = temp[i].getOquantity();
-        var cc = temp[i].getOUprice();
+        var cca = temp[i].getOUprice();
+        var cc = temp[i].getOquantity();
         var ccs = temp[i].getOtotal();
         $('#OrderTable').append('<tr><td>' + ccn + '</td><td>' + cca + '</td><td>' + cc + '</td><td>' + ccs + '</td></tr>');
     }
@@ -202,24 +202,22 @@ function findduplicates(INameO){
 
         var itemCode = table.rows[i].cells[0].innerHTML;
         if (INameO == itemCode){
-            console.log("Yes")
-            console.log(itemCode)
-            console.log(INameO)
-
 
              var oldQty = parseInt(table.rows[i].cells[2].innerHTML);
-             var newQty = parseInt($('#OQuntity').val()) + +oldQty;
+             var newQty = parseInt($('#OQuntity').val());
+             var totalqty = +oldQty + +newQty;
+            table.rows[i].cells[2].innerHTML = "hiii";
+            console.log("Run");
 
-            // table.rows[i].cells[2].innerHTML = newQty;
-             console.log(newQty);
 
-        }else{
-            console.log("No")
-            console.log(itemCode)
-            console.log(INameO)
+
+            }
+        else{
+
            // console.log(table.rows.length);
 
         }
     }
+    return true;
 
 }
