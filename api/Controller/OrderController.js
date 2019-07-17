@@ -120,14 +120,14 @@ function viewAllOrders() {
             var Total = $("#IPrice").text() * $("#OQuntity").val();
 
 
-                findduplicates(INameO);
+
                 if (Oquantity>IquantityO){
                 addOrder(INameO, IpriceO, IquantityO, Total);
                 viewAllOrders();
                 gettotal();
                 clearItemArea();
                  }
-                else{alert("Amount exceeded! Please Cantact Manager")
+                else{//alert("Amount exceeded! Please Cantact Manager")
                     clearItemArea();
                 }
             }
@@ -193,6 +193,9 @@ function clearItemArea() {
 //
 // }
 
+
+
+
 function findduplicates(INameO){
 
     var table = document.getElementById('OTbleBody');
@@ -205,7 +208,7 @@ function findduplicates(INameO){
 
              var oldQty = parseInt(table.rows[i].cells[2].innerHTML);
              var newQty = parseInt($('#OQuntity').val());
-             var totalqty = +oldQty + +newQty;
+             var IquantityO = +oldQty + +newQty;
             table.rows[i].cells[2].innerHTML = "hiii";
             console.log("Run");
 
@@ -221,3 +224,84 @@ function findduplicates(INameO){
     return true;
 
 }
+
+$("#Cashtext").keyup(function(){
+    var total = $('#totalP').text();
+    var cash = $('#Cashtext').val();
+    var discount = $('#Discount').val();
+
+    var pp = total * discount /100;
+    var final = total - pp;
+
+    var balance = cash - (total-pp);
+    var balancetext = $('#Balance');
+
+    balancetext.val(balance);
+    console.log(balance);
+});
+
+// function orderValidations() {
+//     var date = document.getElementById('date');
+//     var id = document.getElementById('')
+//
+//     if($('#date').val()==""){
+//         window.alert("Please enter your name.");
+//         date.focus();
+//    return false;
+//
+//
+// }}
+
+$('#Renewbtn').click(function () {
+    ClearCustomer();
+    ClearItem();
+    ClearDateTIme();
+    ClearTable();
+    ClearBalance();
+
+})
+
+function ClearCustomer() {
+    $('#InputID').val("");
+    $('#one').text("");
+    $('#two').text("");
+    $('#three').text("");
+    $('#four').text("");
+
+    var customerdiv = $('#pppp').offset().top;
+    $(window).scrollTop(pppp);
+}
+
+function ClearItem() {
+
+$('#InputItem').val("");
+$('#IQuantity').text("");
+$('#IPrice').text("");
+$('#IQuantity').text("");
+$('#OQuntity').val("");
+
+var customerdiv = $('#pppp').offset().top;
+$(window).scrollTop(pppp);
+}
+
+function ClearDateTIme() {
+$('#IDtxt').val("");
+
+}
+function ClearTable() {
+    $('#OTbleBody').val("");
+}
+function ClearTotal() {
+    $('#totalP').innerHTML("00.0")
+}
+function ClearBalance() {
+    $('#Cashtext').val("");
+    $('#Discount').val("");
+    $('#Balance').val("");
+}
+
+$(document).ready(function(){
+    $("Renewbtn").click(function(){
+        location.reload(true);
+    });
+});

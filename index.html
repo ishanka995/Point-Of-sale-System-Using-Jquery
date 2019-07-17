@@ -140,23 +140,23 @@
                             <div class="modal-body">
                                 <form>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Customer ID</label>
+                                        <label for="cusTxt">Customer ID</label>
                                         <input type="email" class="form-control" id="cusTxt" aria-describedby="emailHelp" placeholder="">
 
                                     </div>
                                     <div class="form-group">
-                                        <label for="exampleInputEmail1">Customer Name</label>
+                                        <label for="AgeTxt">Customer Name</label>
                                         <input type="email" class="form-control" id="AgeTxt" aria-describedby="emailHelp" placeholder="">
 
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Address</label>
+                                        <label for="txtTP">Address</label>
                                         <input type="email" class="form-control" id="txtTP" placeholder="">
                                     </div>
 
                                     <div class="form-group">
-                                        <label for="exampleInputPassword1">Salary</label>
+                                        <label for="salTxt">Salary</label>
                                         <input type="email" class="form-control" id="salTxt" placeholder="">
                                     </div>
 
@@ -165,7 +165,7 @@
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" class="btn btn-primary" data-dismiss="modal" id="SaveBtn"  onclick="customerAdd()">Save changes</button>
+                                <button type="submit" class="btn btn-primary"  id="SaveBtn" data-dismiss="modal" onclick="customerAdd();">Save changes</button>
                             </div>
                         </div>
                     </div>
@@ -511,7 +511,7 @@
 <!--Place order Form-->
 <div id="OrderForm">
     <div class="row">
-        <div class="container-fluid">
+        <div class="container-fluid" id="pppp">
             <nav aria-label="breadcrumb" style="margin-top: 100px;">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="#">Home</a></li>
@@ -533,19 +533,19 @@
                     <div class="panel-heading center-block bg-primary">
                         <h2 class="panel-title" style="color: white;text-align: center">Customer Details</h2>
                     </div>
-                    <div class="panel-body" style="padding: 10px">
+                    <div class="panel-body" style="padding: 10px" id="CustomerDIV">
                         <div class="form-group form-inline">
-                            <label for="Items">Customer ID: </label>
+                            <label for="InputID">Customer ID: </label>
                             <input id="InputID" name="itemp"  type="text" class="form-control">
                             <button type="button" class="btn btn-info" onclick="CusORder()">Search</button>
                             <button  class="btn btn-success" style="margin-left: 5px">Customer+</button>
                         </div>
                         <div class="panel-body">
                             <div class="form-group">
-                                <label for="name" class="form-control">Customer ID :<span id="one"></span></label>
-                                <label for="name" class="form-control">Name :<span id="two" ></span></label>
-                                <label for="name" class="form-control">Address :<span id="three" ></span></label>
-                                <label for="name" class="form-control">Salary :<span id="four"></span></label>
+                                <label for="one" class="form-control">Customer ID :<span id="one"></span></label>
+                                <label for="two" class="form-control">Name :<span id="two" ></span></label>
+                                <label for="three" class="form-control">Address :<span id="three" ></span></label>
+                                <label for="four" class="form-control">Salary :<span id="four"></span></label>
                             </div>
                         </div>
                     </div>
@@ -578,7 +578,7 @@
                     <div class="panel-body" style="padding: 10px">
 
                         <div class="form-group form-inline">
-                            <label for="Items">Item Name: </label>
+                            <label for="InputItem">Item Name: </label>
                             <input id="InputItem"  type="text" class="form-control">
 
                             <button  class="btn btn-success" style="margin-left: 5px" onclick="iteSeas()">Search</button>
@@ -663,19 +663,21 @@
                 </div>
 
                 <div class="form-group form-inline tg"style="padding: 30px; border: solid blue 1px;margin-left: 100px">
+
+                    <label style="padding: 10px">Discount %</label>
+                    <input id="Discount" class="form-control">
                     <label style="padding: 10px">Cash</label>
-                    <input id="inputC" class="form-control">
+                    <input id="Cashtext" class="form-control">
                     <label style="padding: 10px">Balance</label>
-                    <input id="balanceD" class="form-control">
-                    <label style="padding: 10px">Discount</label>
-                    <input id="discc" class="form-control">
+                    <input id="Balance" class="form-control">
+
                 </div>
 
 
-                <div style="margin-left: auto;padding: 10px;margin-top: 50px">
-                    <button class="btn btn-danger" id="mainB" style="float: right" onclick="">Submit Order</button>
-                    <button class="btn btn-success" id="mainB2" style="float: right" >Renew Order</button>
-                    <button class="btn btn-warning" style="float: right" onclick="fulltc()">Clear</button>
+                <div style="margin-left: auto;padding: 10px;margin-top: 200px">
+                    <button class="btn btn-danger" id="Submitbtn" style="float: right">Submit Order</button>
+                    <button class="btn btn-success" id="Renewbtn" style="float: right">Renew Order</button>
+
 
 
 

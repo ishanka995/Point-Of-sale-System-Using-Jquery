@@ -183,3 +183,10 @@ $('#crd').click(function () {
     cusSec();
 });
 
+function CustomerValidations() {
+    var cusName = document.getElementById('pppp');
+    if($('#cusTxt').val()==""){
+        window.alert("Please enter your name.");
+        cusName.focus();
+        return false;
+    }}
