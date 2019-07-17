@@ -82,10 +82,10 @@ function updateSearch(name, price, qun) {
 
 
 
-function addOrder(ItemName, Uprice, Quantity, Total) {
+function addOrder(ItemNam, Upric, quantit, tota) {
 
 
-    var OrderObject = new OrderDTO(ItemName, Uprice, Quantity, Total);
+    var OrderObject = new OrderDTO(ItemNam, Upric, quantit, tota);
     orderDb.push(OrderObject);
 
 }
@@ -99,8 +99,8 @@ function viewAllOrders() {
     $('#OTbleBody').empty();
     for (var i = 0; i < temp.length; i++) {
         var ccn = temp[i].getOItemName();
-        var cca = temp[i].getOUprice();
-        var cc = temp[i].getOquantity();
+        var cca = temp[i].getOquantity();
+        var cc = temp[i].getOUprice();
         var ccs = temp[i].getOtotal();
         $('#OrderTable').append('<tr><td>' + ccn + '</td><td>' + cca + '</td><td>' + cc + '</td><td>' + ccs + '</td></tr>');
     }
@@ -114,21 +114,23 @@ function viewAllOrders() {
 
 
             var INameO = $("#INanme").text();
-            var IpriceO = $("#IPrice").text();
-            var Oquantity = $('#IQuantity').text(); //stock Amount
-            var IquantityO = $("#OQuntity").val();// order Amount
+            var IpriceO = parseInt( $("#IPrice").text());
+            var Oquantity =parseInt( $('#IQuantity').text()); //stock Amount
+            var IquantityO = parseInt($("#OQuntity").val());// order Amount
             var Total = $("#IPrice").text() * $("#OQuntity").val();
 
 
-                //findduplicates(INameO);
+                findduplicates(INameO);
                 if (Oquantity>IquantityO){
                 addOrder(INameO, IpriceO, IquantityO, Total);
                 viewAllOrders();
                 gettotal();
                 clearItemArea();
-                }else{alert("Amount exceeded!")}
-
-                    }
+                 }
+                else{alert("Amount exceeded! Please Cantact Manager")
+                    clearItemArea();
+                }
+            }
 
       function gettotal() {
 
@@ -200,21 +202,24 @@ function findduplicates(INameO){
 
         var itemCode = table.rows[i].cells[0].innerHTML;
         if (INameO == itemCode){
-            // console.log("Yes")
-            // console.log(itemCode)
-            // console.log(INameO)
-            var oldQty = table.rows[i].cells[2].innerHTML;
-            var newQty = $('#OQuntity').val();
-            var newQty =+oldQty+ +newQty;
-            table.rows[i].cells[2].innerHTML = newQty;
-            console.log(newQty);
+            console.log("Yes")
+            console.log(itemCode)
+            console.log(INameO)
+
+
+             var oldQty = parseInt(table.rows[i].cells[2].innerHTML);
+             var newQty = parseInt($('#OQuntity').val()) + +oldQty;
+
+            // table.rows[i].cells[2].innerHTML = newQty;
+             console.log(newQty);
 
         }else{
             console.log("No")
             console.log(itemCode)
             console.log(INameO)
-            console.log(table.rows.length);
+           // console.log(table.rows.length);
 
         }
     }
+
 }
